@@ -26,9 +26,10 @@
     <!-- Font words -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- Style css -->
     <link rel="stylesheet" href="./assets/fonts/stylesheet.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/css/stye.css">
     <title>Project-01</title>
 </head>
@@ -38,17 +39,30 @@
             <div class="content">
                  <!-- Navigation -->
                 <nav class="nav-bar">
+                    <!-- Tablet/mobile menu -->
+                    <label for="menu-checkbox" class="toggle-menu">
+                        <svg 
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg" 
+                        viewBox="0 0 448 512">
+                        <path 
+                        d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+                        />
+                    </svg>
+                    </label>
                     <!-- Logo -->
                      <a href="#">
-                        <img src="./assets/img/logo.svg" alt="logo">
+                        <img class="logo" src="./assets/img/logo.svg" alt="logo">
                      </a>
                      <!-- Navigation -->
-                      <ul class="list">
+                      <ul id="pc-nav" class="list">
                         <li><a href="#" id="home-link">Home</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#Resources">Resources</a></li>
                         <li><a href="#Contact">Contact</a></li>
+                        <li><a class="show-on-mobile separate" href="#!">Sign In</a></li>
+                        <li><a class="show-on-mobile" href="#!">Sign Up</a></li>
                       </ul>
 
                       <!-- Actions -->
@@ -59,7 +73,35 @@
                 </nav>
             </div>
         </header>
-    <main>
+    <!-- Table/mobile header -->
+    <header class="mobile-header">
+        <input type="checkbox" name="" 
+        id="menu-checkbox"
+        class="menu-checkbox" 
+        hidden>
+        <!-- Overplay -->
+        <label for="menu-checkbox" class="menu-overlay"></label>
+
+        <!-- Menu content -->
+        <div class="menu-drawer">
+            <!-- Logo -->
+            <a href="#">
+                <img  
+                src="./assets/img/logo.svg" alt="logo">
+            </a>
+            <!-- Navigation -->
+           <ul id="mobile-nav"></ul>
+           <script>
+                const pcNav = document.querySelector('#pc-nav')
+                const mobileNav = document.querySelector('#mobile-nav')
+                
+                /*Copy từ pc-Nav sang mobile*/
+                mobileNav.innerHTML = pcNav.innerHTML
+           </script>
+        </div>
+
+    </header>
+    <main >
         <!-- Hero -->
         <div class="hero-header">
             <div class="content">        
@@ -96,7 +138,7 @@
 
                 <div class="row clients-info">
                     <p class="clients-desc">More than 45,000+ companies trust besnik</p>
-                    <p class="clients-desc">5 Star Ratings (2k+ Review)</p>
+                    <p class="clients-desc hide-on-mobile">5 Star Ratings (2k+ Review)</p>
                 </div>
 
                 <div class="images">
@@ -243,6 +285,10 @@
 
                     
                 </div>
+
+                <div class="view-all">
+                    <a href="#!" class="btn">View All Properties</a>
+                </div>
             </div>
         </div>
 
@@ -339,7 +385,7 @@
     </main>
 
      <!-- Footer -->
-        <div class="footer">
+    <div class="footer" >
             <div class="content">
                 <div class="row row-top">
                     <!-- Product -->
@@ -422,7 +468,7 @@
                     <p class="footer_copy">Copyright 2020.com, All rights reserved.</p>
                 </div>
             </div>
-        </div>
+    </div>
     
 </body>
 </html>
